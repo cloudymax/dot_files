@@ -1,8 +1,3 @@
--- disable netrw at the very start of your init.lua (strongly advised)
--- nvim-tree requires this
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- sometimes neovim can't remember where python is if you install with linuxbrew
 -- if vim.loop.os_uname().sysname == 'Linux'
 --	then
@@ -28,39 +23,24 @@ vim.opt.termguicolors = true
 -- make searching case insensitive
 vim.opt.ignorecase = true
 
--- indentation
-require('user.indent')
+-- moved directly to lazy
+-- require('user.keymap')
 
--- both of these are required to make packer, our plugin manager, work
-require('plugins')
-vim.cmd.source("~/.config/nvim/packerinit.vim")
+-- load plugins
+-- require("lazy").setup("plugins")
+require('user.lazy')
 
--- --------- Plugin configs that have to be called after packer --------------
--- Colors need to be enabled after the plugins, because the colors are a plugin
-vim.cmd.colorscheme('spacechalk')
-vim.g.colors_name = 'spacechalk'
-
+-- --------- Plugin configs that have to be called after lazy --------------
 -- starting page for neovim
 require('user.dashboard')
 
--- completion from nvim-cmp
-require('user.completion')
-
--- Language Server configs and other syntax checking and highlight tools
-require('user.lsp-configs')
-require('user.tree-sitter')
-
--- folding parameters
-require('user.folding')
-
--- tab line at top of window for tabs when there's more than one tab :)
+-- tab line at top of window for tabs when there's more than one tab :) -- might switch to bufferline
 require('user.barbar')
-
 -- status line at bottom of window for cool file facts 
 require('user.lualine')
 
--- directory tree for neovim; can option with :NvimTreeToggle
-require('user.nvim-tree')
+-- directory tree; can open with :Neotree
+require('user.neo-tree')
 
 -- scrollbar on the right side of the screen that also shows errors
 require("user.gitsigns")
@@ -69,5 +49,21 @@ require("user.scrollbar")
 -- floating windows
 require('user.fterm')
 
+-- dim inactive windows - moved to lazy directly
+-- require("tint").setup()
+
+-- Language Server configs and other syntax checking and highlight tools
+require('user.lsp-configs')
+require('user.tree-sitter')
+
+-- folding and indentation
+require('user.indent')
+
+-- completion from nvim-cmp
+require('user.completion')
+
 -- syntax highlighting for hex codes
 require('user.nvim-colorizer')
+
+-- experiment to give you a remote git permalink URL for your your current line
+-- require('user.git_url')

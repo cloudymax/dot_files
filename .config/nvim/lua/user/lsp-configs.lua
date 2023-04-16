@@ -11,35 +11,34 @@ require("mason-lspconfig").setup {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- all of the below are referenced from the neovim nvim-lspconfig repo
--- ref: github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
+-- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 -- Setup the language servers so that they're available for our LSP client.
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 
--- ansible (may require npm install -g @ansible/ansible-language-server)
-nvim_lsp.ansiblels.setup{
+-- ansible 
+lspconfig.ansiblels.setup{
    capabilities = capabilities
 }
 
--- bash (may require npm i -g bash-language-server)
-nvim_lsp.bashls.setup{
+-- bash 
+lspconfig.bashls.setup{
    capabilities = capabilities
 }
 
--- docker (may require npm install -g dockerfile-language-server-nodejs)
-nvim_lsp.dockerls.setup{
+-- docker 
+lspconfig.dockerls.setup{
    capabilities = capabilities
 }
 
 -- json
-nvim_lsp.jsonls.setup {
+lspconfig.jsonls.setup {
   capabilities = capabilities,
 }
 
 
--- lua (may require brew install lua-language-server)
-nvim_lsp.lua_ls.setup{
+-- lua 
+lspconfig.lua_ls.setup{
     settings = {
         Lua = {
             runtime = {
@@ -62,55 +61,63 @@ nvim_lsp.lua_ls.setup{
     },
 }
 
--- markdown (may require brew install marksman)
-nvim_lsp.marksman.setup{
+-- markdown 
+lspconfig.marksman.setup{
    capabilities = capabilities
 }
 
 -- python
-nvim_lsp.jedi_language_server.setup{
+lspconfig.jedi_language_server.setup{
    capabilities = capabilities
 }
 
 -- python - ruff linting
-nvim_lsp.ruff_lsp.setup{}
+lspconfig.ruff_lsp.setup{}
 
 -- terraform
-nvim_lsp.terraformls.setup{
+lspconfig.terraformls.setup{
    capabilities = capabilities
 }
 
 -- Terraform linter that can act as lsp server.
 -- Installation ref: https://github.com/terraform-linters/tflint#installation
--- nvim_lsp.tflint.setup{}
+lspconfig.tflint.setup{}
 
--- toml ( may require cargo install --features lsp --locked taplo-cli )
-nvim_lsp.taplo.setup{
+-- toml 
+lspconfig.taplo.setup{
    capabilities = capabilities
 }
 
--- vim ( may require npm install -g vim-language-server )
-nvim_lsp.vimls.setup{
+-- vim -- will be removed when I finish converting everything to lua
+lspconfig.vimls.setup{
    capabilities = capabilities
 }
 
 -- yaml - not sure if this is worth it yet
 -- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#yamlls
-nvim_lsp.yamlls.setup {
+lspconfig.yamlls.setup {
   settings = {
     yaml = {
       schemas = {
         ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.23.0-standalone-strict/all.json"] = "/*.k8s.yaml",
-        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-workflow.json"] = "/*/.github/workflows/*.yml",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
             },
     }},
     capabilities = capabilities
 }
 
 -- change the diagnostic signs to be nerdfonts
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})

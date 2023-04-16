@@ -17,7 +17,9 @@ fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Typos <3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 alias pign='ping'
-alias gtop='gotop'
+alias gtop='btm'
+alias top='btm'
+alias gotop='btm'
 # can never spell clear
 alias celar='clear'
 alias clar='clear'
@@ -53,6 +55,7 @@ alias adb='scrcpy.adb'
 
 # I never remember what the img2sixel command is called
 alias sixel='img2sixel'
+alias imgcat='wezterm imgcat'
 
 # quick to do
 alias todo="$EDITOR ~/todo.md"
@@ -90,7 +93,7 @@ alias gsa='ls -1 -A | xargs -I % sh -c "if [ -d % ]; then toilet -f smblock % | 
 alias gd='git diff'
 alias ga='git add .'
 alias gph='git push && git push --tags'
-alias gpl='git pull'
+alias gp='git pull && git log -1'
 
 # typos
 alias gitcommit='git commit'

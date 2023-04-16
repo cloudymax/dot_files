@@ -1,12 +1,20 @@
 # Dot Files for `onboardme`
 
-These started as my personal dot files, but then they became the sensible defaults for
-[`onboardme`](https://github.com/jessebot/onboardme), which started out as a script
-to manage my dot files :shrug:
-
-These directories/files are installed to your home directory and follow the [XDG Base Directory Spec] as closely as possible.
+These are the sensible defaults for [`onboardme`](https://github.com/jessebot/onboardme), but also the personal dot files of @cloudymax and @jessebot. The directories/files are installed to your home directory and follow the [XDG Base Directory Spec] as closely as possible.
 
 ### Sections for each config directory/file
+
+<details>
+  <summary><code>.cache</code></summary>
+
+  <blockquote>
+
+  File: [`~/.cache/wget/wget-hsts`](.cache/wget/wget-hsts)
+
+  File to auto-generate location for wget cache to match [XDG Base Directory Spec]
+  </blockquote>
+
+</details>
 
 <details>
   <summary><code>.config</code></summary>
@@ -42,7 +50,7 @@ These directories/files are installed to your home directory and follow the [XDG
   - enable italic text
   - maps Chart.lock files to YAML syntax (this is for the helm charts for k8s)
 
-  The goal is to have a spacechalk-like theme soon :)
+  The goal is to have a [spacechalk.nvim]-like theme soon :)
 
   </blockquote>
 
@@ -57,7 +65,6 @@ These directories/files are installed to your home directory and follow the [XDG
   - [`~/.config/bash/alias.sh`](.config/bash/alias.sh)
   - [`~/.config/bash/completion.sh`](.config/bash/completion.sh)
   - [`~/.config/bash/history.sh`](.config/bash/history.sh)
-  - [`~/.config/bash/iterm2_shell_integration.sh`](.config/bash/iterm2_shell_integration.sh)
   - [`~/.config/bash/k8s.sh`](.config/bash/k8s.sh)
   - [`~/.config/bash/path.sh`](.config/bash/path.sh)
   - [`~/.config/bash/minimal.sh`](.config/bash/minimal.sh)
@@ -73,9 +80,6 @@ These directories/files are installed to your home directory and follow the [XDG
   - sets history to be in `~/.local/state/bash/history`
   - sets default history size
   - don't log duplicate history lines
-
-  #### [`iterm2_shell_integration.sh`](.config/bash/iterm2_shell_integration.sh)
-  sets up [iterm2] shell stuff
 
   #### [`~/.config/bash/text_editing.sh`](.config/bash/text_editing.sh)
   sets [neovim] as default text editor, or [vim] if neovim is not present
@@ -130,7 +134,7 @@ These directories/files are installed to your home directory and follow the [XDG
 
   Config file for [`gh`][github-cli], the GitHub CLI. There's not a ton in there,
   but it uses [rich-cli] as a prettier pager, and firefox as a browser,
-  and setting [vim] as an editor. The rest is stock, and subject to change.
+  and setting [neovim] as an editor. The rest is stock, and subject to change.
 
   </blockquote>
 
@@ -145,7 +149,7 @@ These directories/files are installed to your home directory and follow the [XDG
 
   Config file for [`glab`](https://glab-cli.io/), an open source GitLab CLI tool.
   There's not a ton in there, but it uses a dark theme, firefox as a browser,
-  and [vim] as an editor. The rest is stock, and subject to change.
+  and [neovim] as an editor. The rest is stock, and subject to change.
 
   </blockquote>
 
@@ -190,67 +194,13 @@ These directories/files are installed to your home directory and follow the [XDG
   </details>
 
   <details>
-  <summary><code>hyper</code></summary>
+    <summary><code>gitui</code></summary>
 
   <blockquote>
 
-  File: [`~/.config/hyper/.hyper.js`](.config/hyper/.hyper.js)
+  File: [`~/.config/gitui/theme.ron`](.config/gitui/theme.ron)
 
-  Sensible defaults for the [hyper](https://hyper.is) terminal emulator.
-
-  </blockquote>
-
-  </details>
-
-  <details>
-    <summary><code>iterm2</code></summary>
-
-  <blockquote>
-
-  [iterm2] is a terminal emulator for macOS.
-
-  Symlinked File:  [`~/.config/iterm2/Profiles.json -> ~/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json`](Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json)
-
-  ### Profiles.json
-  Sets some basic profiles:
-  - default - profile with spacechalk colorscheme,
-  - minimal - profile with basically nothing special and a plain `.bash_profile`.
-
-  ###
-
-  </blockquote>
-
-  </details>
-
-  <details>
-    <summary><code>karabiner</code></summary>
-
-  <blockquote>
-
-  File: [`~/.config/karabiner/karabiner.json`](.config/karabiner/karabiner.json)
-
-  Config file for [karabiner](https://karabiner-elements.pqrs.org/),
-  which is used to map capslock to control on macOS and other key remapping that
-  can be really useful.
-
-  </blockquote>
-
-  </details>
-
-  <details>
-    <summary><code>kitty</code></summary>
-
-  <blockquote>
-
-  Files:
-  - [`~/.config/kitty/kitty.conf`](.config/kitty/kitty.conf)
-  - [`~/.config/kitty/kitty-dark.png`](.config/kitty/kitty-dark.png)
-
-  Config files related to [kitty], a terminal emulator. Cute open source
-  kitty icon image by [DinkDonk], as well as a basic `kitty.conf` to
-  use some [nerdfonts], and set up look and feel on macOS. I don't use this
-  terminal emulator much anymore so I'm not sure how well this still works
-  accross different OSes.
+  This just sets a basic colorscheme for gitui so it's readable with [spacechalk.nvim]-like colors :)
 
   </blockquote>
 
@@ -265,7 +215,7 @@ These directories/files are installed to your home directory and follow the [XDG
 
   Config file for [`lsd`][lsd], an [`ls`][ls] alternative with icons and
   pretty colors. There's an intension to write and release a
-  [spacechalk] theme for lsd eventually.
+  [spacechalk.nvim]-like theme for lsd eventually.
 
   </blockquote>
 
@@ -338,59 +288,31 @@ These directories/files are installed to your home directory and follow the [XDG
 
   <blockquote>
 
-  Config files for [neovim] is a hyperextensible Vim-based text editor,
-  which is in some ways a sucessor to [vim]. It's a lot faster, for one,
-  and there's more support for more languages, which means more plugins.
-  Uses [packer] to manager neovim plugins.
+  [neovim] is a hyperextensible Vim-based text editor, which is in some ways a sucessor to [vim]. It's a lot faster, for one, and there's more support for more languages, which means more plugins. Uses [lazy.nvim] to manage neovim plugins.
 
   Each file explained below:
 
   ### [`init.lua`](.config/nvim/init.lua)
   The main global configuration changes are:
-  - turning off mouse scrolling
+  - turning off mouse scrolling (might re-enable this 🤔)
   - enabling line numbers
   - adding a cursorline
-  - case insensitive searches
+  - <kbd>enter</kbd> folds the current code block
+  - <kbd>space</kbd> is our leader key (a custom modifier key for neovim)
   - setting column 80 to be a different color for tidy code
-  - enabling gui colors so you aren't limited to like 8 colors
-  - uses the [spacechalk] colorscheme
-  - sources all the files in [~/.config/nvim/lua](.config/nvim/lua),
-    including [packer], plugins, and local plugin configs.
+  - searches are case insensitive
+  - enabling gui colors so you aren't limited to like 16 colors
+  - uses the [spacechalk.nvim] colorscheme
+  - sources all the files in [`~/.config/nvim/lua`](.config/nvim/lua),
+    including all our [plugin configs](.config/nvim/lua/user/lazy.lua).
 
-  ### [`~/.config/nvim/packerinit.vim`](.config/nvim/packerinit.vim)
-  This is a quick and dirty lua function to print " ♥ ♥ ♥ " if neovim is running
-  in an interactive session and packer completes an action, and to exit if we're
-  running headless, meaning we're running in a script.
 
   ### [`~/.config/nvim/lua/plugins.lua`](.config/nvim/lua/plugins.lua)
-  This is the configuration for packer, our plugin manager for neovim. It
-  installs packer, and then all of our plugins. You can check out all the
-  plugins that are installed, or called from vim plugins starting on line 15.
-
-  ### [`~/.config/nvim/lua/user/airline.lua`](.config/nvim/lua/user/airline.lua)
-  sets defaults for [airline][airline], a status line for
-  vim and neovim. The configurations are:
-  - use [spacechalk] theme
-  - enables [powerline fonts][powerline fonts] (fun icons)
-  - disables empty sections of the status line
-  - enables the [ale] extension to work with airline for linting
-  - changes the default dividers to be   and '
-  - sets a line number percentage function for a slimmer ln segment
-
-  ### [`~/.config/nvim/lua/user/ale.lua`](.config/nvim/lua/user/ale.lua)
-  sets defaults for [ale][ale] such as:
-  - enable ale by default
-  - error icons are now  and warn icons are now 
-  - don't lint on text changes, only on mode changes
-  - use lints for python such as ruff and flake8
-  - run autofixers on save
-  - move between errors
+  This is the configuration for [`lazy.nvim`], our plugin manager for neovim. It
+  installs lazy, and then all of our plugins.
 
   ### [`~/.config/nvim/lua/user/dashboard.lua`](.config/nvim/lua/user/dashboard.lua)
-  config for a starting screen [dashboard] for neovim. You
-  should just check out the file to see what's being done. It's cute ascii art,
-  and utilizes [telescope] to check out your files and previously
-  opened files.
+  config for a starting screen [dashboard] for neovim. You should just check out the file to see what's being done. It's cute ascii art, and utilizes [telescope] to open your recent files or search your files. 
 
   ### [`~/.config/nvim/lua/user/folding.lua`](.config/nvim/lua/user/folding.lua)
   config file to enable folding, which is just vim speak for collapsing
@@ -435,11 +357,26 @@ These directories/files are installed to your home directory and follow the [XDG
   </details>
 
   <details>
+    <summary><code>onboardme</code></summary>
+
+  <blockquote>
+
+  Files:
+  - [`~/.config/onboardme/config.yml`](.config/onboardme/config.yml)
+  - [`~/.config/onboardme/packages.yml`](.config/onboardme/packages.yml)
+
+  These are config files for [onboardme], a tool to install dot files, packages, and setup neovim.
+
+  </blockquote>
+
+  </details>
+
+  <details>
     <summary><code>powerline</code></summary>
 
   <blockquote>
 
-  Configuration files for [powerline], a status line for [BASH] and [tmux]. We enable a [spacechalk] color theme as well as:
+  Configuration files for [powerline], a status line for [BASH] and [tmux]. We enable a [spacechalk.nvim]-like color theme as well as:
   - local IP address
   - hostname
   - current working directory
@@ -500,7 +437,7 @@ These directories/files are installed to your home directory and follow the [XDG
   - [`~/.config/ranger/rc.conf`](.config/ranger/rc.conf)
 
   [ranger][ranger] is a [TUI] file manager. Current configurations:
-  - enable file previews using [iterm2]
+  - enable file previews using [iterm2] image protocol
   - enable video previews using ffmpegthumbnailer
   - enable svg previews.
 
@@ -547,21 +484,6 @@ These directories/files are installed to your home directory and follow the [XDG
   </details>
 
   <details>
-    <summary><code>terminator</code></summary>
-
-  <blockquote>
-
-  File: [`~/.config/terminator`](.config/terminator)
-
-  Default config for my favorite terminal from my starting days in tech, [terminator].
-  We set some basic [spacechalk]-esk colors, transparency, and mononoki fonts.
-
-  </blockquote>
-
-  </details>
-
-
-  <details>
     <summary><code>tmux</code></summary>
 
   <blockquote>
@@ -572,54 +494,6 @@ These directories/files are installed to your home directory and follow the [XDG
   - Sets 256 colors
   - enable the [powerline] tmux status line
 
-  </blockquote>
-
-  </details>
-
-  <details>
-    <summary><code>vim</code></summary>
-
-  <blockquote>
-
-  Configuration for [vim], a text editor, and it's plugins, installed via
-  [vim-plug].
-
-  [`~/.config/vim/vimrc`](.config/vim/vimrc) is the main file for the global vim configuration.
-  We set a lot of defaults, including:
-  - making vim use the [XDG Base Directory Spec]
-  - setting window width to 82 characters
-  - enabling line numbers
-  - enabling highlighting of column cursor is on
-  - add a colored column on column 80 for tidy python
-  - sets a nerd font for vim
-  - enable syntax highlighting
-  - use [spacechalk] colorscheme
-  - configure icons for VimDevicons, and NERDTree
-  - ale icons changed, ale linters and fixers set for python
-  - gitgutter icons
-  - folding defaults
-  - sets backups to XDG standard
-  - allow backspace in insert mode
-  - default tabbing
-  - set search history
-  - installs all the plugins [here](https://github.com/jessebot/dot_files/blob/main/.vimrc#L452)
-  - uses template files below
-
-  Auto-install vim-plug:
-  - [`~/.vim/autoload/plug.vim`](.vim/autoload/plug.vim)
-
-  Files for syntax highlighting for python, ssh_known_hosts, and .toml files:
-  - [`~/.vim/syntax/python.vim`](.vim/syntax/python.vim)
-  - [`~/.vim/syntax/ssh_known_hosts.vim`](.vim/syntax/ssh_known_hosts.vim)
-  - [`~/.vim/syntax/toml.vim`](.vim/syntax/toml.vim)
-
-  Files for default values in a python or markdown file:
-  - [`~/.vim/templates/template.md`](.vim/templates/template.md)
-  - [`~/.vim/templates/template.py`](.vim/templates/template.py)
-
-
-  Since we install the [NERDTree](https://github.com/preservim/nerdtree) plugin,
-  `:NERDTreeToggle` enables a directory tree of your current directory on the left hand side of your current vim window.
   </blockquote>
 
   </details>
@@ -664,7 +538,7 @@ These directories/files are installed to your home directory and follow the [XDG
   - hides tab bar if only one tab
   - remove top title bar
   - set background opacity to 0.7
-  - change colors to a softer spacechalk aligned colorscheme
+  - change colors to a softer [spacechalk.nvim] aligned colorscheme
 
   </blockquote>
 
@@ -715,11 +589,8 @@ These directories/files are installed to your home directory and follow the [XDG
   Directory:
   - [`~/.local/bin/iterm2`](.local/bin/iterm2)
 
-  Everything in there are files written and provided by iTerm2 for integrating iterm2 magic into your terminal. The only custom one is the following:
+  This is just for `imgcat`, for printing images in iterm2/wezterm.
 
-  | Command         | Description                                    |
-  |:---------------:|:-----------------------------------------------|
-  | `it2split`      | Open split in iterm2 with your default profile |
 
   </blockquote>
 
@@ -768,7 +639,7 @@ These directories/files are installed to your home directory and follow the [XDG
   - enables 256 colors
   - sources all the files in `~/.config/bash` (see above under config > bash )
   - sources personal file in `~/.config/bash/personal/bashrc`
-  - runs [neofetch] when you source it
+  - runs [fastfetch] when you source it
 
   </blockquote>
 
@@ -820,11 +691,23 @@ You can still use `onboardme`, but you'll want to pass in _your_ git URL and bra
 onboardme --git_url https://github.com/your_username/dot_files --git_branch main
 ```
 
-### RoadMap
+### FAQ
+
+<details>
+  <summary>Where are the config files for vim, iterm2, terminator, etc?</summary>
+
+  <blockquote>
+
+  I've been moving all the configurations for apps I no longer use to [jessebot/old_dotfiles](https://github.com/jessebot/old_dotfiles).
+
+  </blockquote>
+
+</details>
+
+#### RoadMap
 
 - Get screenshots
-- Sort out neovim idiosyncrasies to start using neovim full time
-- migrate some of the themeing to a spacechalk org to unify it all
+- migrate some more of the themeing to the space-chalk org to unify it all
 
 * more in the GitHub Issues
 
@@ -851,7 +734,8 @@ onboardme --git_url https://github.com/your_username/dot_files --git_branch main
 <!-- ------------------------ Fonts and Colors -------------------------- -->
 [nerdfonts]: https://www.nerdfonts.com/ "nerdfonts"
 [powerline fonts]: https://github.com/powerline/fonts "powerline fonts"
-[spacechalk]: https://github.com/jessebot/spacechalk "spacechalk colorscheme"
+[spacechalk.nvim]: https://github.com/space-chalk/spacechalk.nvim "spacechalk colorscheme for neovim"
+
 
 <!-- ------------------------------- Kubernetes --------------------------- -->
 [krew]: https://krew.sigs.k8s.io/ "krew, plugin manager for kubectl"
@@ -859,8 +743,6 @@ onboardme --git_url https://github.com/your_username/dot_files --git_branch main
 
 <!-- ---------------------- Terminal emulators ---------------------- -->
 [iterm2]: https://iterm2.com/ "iterm2"
-[kitty]: https://sw.kovidgoyal.net/kitty/ "kitty, a terminal emulator"
-[DinkDonk]: https://github.com/DinkDonk/kitty-icon "kitty-icon"
 
 <!-- ---------------------- File browsers/listers ---------------------- -->
 [ls]: https://linux.die.net/man/1/ls "gnu tool: ls"
@@ -873,14 +755,11 @@ onboardme --git_url https://github.com/your_username/dot_files --git_branch main
 [neonwolf colorscheme]: https://gitlab.com/h3xx/mutt-colors-neonwolf "neonwolf neomutt colorscheme"
 [neomutt powerline]: https://github.com/sheoak/neomutt-powerline-nerdfonts "neomutt-powerline-nerdfonts"
 
-<!-- ------------------------- Vim and Neovim ---------------------------- -->
-[airline]: https://github.com/vim-airline/vim-airline "airline"
-[ale]: https://github.com/dense-analysis/ale "ale: asynchonous linting engine"
+<!-- ------------------------- Neovim ---------------------------- -->
 [dashboard]: https://github.com/glepnir/dashboard-nvim "dashboard.nvim"
-[packer]: https://github.com/wbthomason/packer.nvim "neovim packer"
+[lazy.nvim]: https://github.com/folke/lazy.nvim "lazy.nvim, a plugin manager for neovim"
 [neovim]: https://neovim.io/ "neovim, vim based text editor"
 [nvim-tree]: https://github.com/nvim-tree/ "nvim-tree"
 [telescope]: https://github.com/nvim-telescope/telescope.nvim "telescope.nvim"
 [tree-sitter]: https://github.com/nvim-treesitter/nvim-treesitter "nvim-treesitter"
 [vim]: https://www.vim.org/ "vim, a text editor"
-[vim-plug]: https://github.com/junegunn/vim-plug "plugin manager for vim"

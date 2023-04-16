@@ -20,6 +20,9 @@ export HOWDOI_COLORIZE=1
 # makes gpg prompt for passphrase in the terminal for git commit -S
 export GPG_TTY=$(tty)
 
+# use linux/amd64 platform by default on macOS - may break KinD!
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # source all the pathing exports including XDG Base Dir Spec env vars
 . ~/.config/bash/path.sh
 
@@ -48,12 +51,15 @@ if [ -f $personal_rc_file ]; then
     . $personal_rc_file
 fi
 
-# for powerline, a fancy extensible prompt: https://powerline.readthedocs.io
-if [ -f $pip_packages/powerline/bindings/bash/powerline.sh ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    . $pip_packages/powerline/bindings/bash/powerline.sh
+# launch powerline only if we're not in a neovim fterm floating window
+if [ -z $FTERM_TUI ] ; then
+    # powerline - a fancy extensible prompt: https://powerline.readthedocs.io
+    if [ -f $pip_packages/powerline/bindings/bash/powerline.sh ]; then
+        powerline-daemon -q
+        POWERLINE_BASH_CONTINUATION=1
+        POWERLINE_BASH_SELECT=1
+        . $pip_packages/powerline/bindings/bash/powerline.sh
+    fi
 fi
 
 # -------------------------------------------------------------------------- #
@@ -61,9 +67,15 @@ fi
 #  you can set $LOCALHOST_PRESET to a fastfetch preset you have locally in:  #
 #                  $XDG_DATA_HOME/fastfetch/presets/                         #
 # -------------------------------------------------------------------------- #
-if [ ! -z $LOCALHOST_PRESET ]; then
+if [ ! -z $LOCALHOST_PRESET ] && [ -z $NVIM ]; then
     alias fastfetch="echo '' && fastfetch --load-config $LOCALHOST_PRESET"
 else
     alias fastfetch="echo '' && fastfetch"
 fi
-fastfetch
+
+# don't print fastfetch in neovim or poetry shell by default, and don't use logo
+if [ ! -z $NVIM ] || [ ! -z $POETRY_ACTIVE ] || [ ! -z $ZELLIJ ]; then
+    alias fastfetch="echo '' && fastfetch --logo-type none"
+else
+    fastfetch
+fi
