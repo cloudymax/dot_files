@@ -22,98 +22,98 @@ brew:
     default:
       - jump
       # cool interactive python with colors + docs
-      - bpython
+      #- bpython
       # TUI browser
-      - w3m
+      #- w3m
       # markdown rendering
-      - pandoc
+      #- pandoc
       - wget
       # tmux replacement :)
-      - zellij
+      #- zellij
       # recording a shell session to share with others
-      - asciinema
+      #- asciinema
       # TUI IDE is neovim 
       - neovim
       # TUI email client
-      - neomutt
+      #- neomutt
       # fetch your mail locally for neomutt
-      - offlineimap
+      #- offlineimap
       # fuzzy search, helps with completion and searching
-      - fzf
+      #- fzf
       # ls replacement written in rust: https://github.com/Peltoche/lsd
       - lsd
       #  A cat(1) clone with syntax highlighting and Git integration.
       - bat
       # pretty formatting and syntax highlighting
-      - rich-cli
+      #- rich-cli
       # file TUI: https://www.geeksforgeeks.org/ranger-a-cli-file-manager/
-      - ranger
+      #- ranger
       # preview videos in the terminal. commented by default because it is big
       # - ffmpegthumbnailer
       # cat images in the terminal (e.g. img2sixel imagename.png)
-      - libsixel
+      #- libsixel
       # for working with images and making lsimg work
-      - imagemagick
+      #- imagemagick
       # ag command: like grep or ack, but more modern, for searching file text
-      - the_silver_searcher
+      #- the_silver_searcher
       # diff, but with colors
-      - colordiff
+      #- colordiff
       # prettier top alternatives in C++ and Rust respectively
-      - btop
-      - bottom
+      #- btop
+      #- bottom
       # quick system metrics, typically used as an MOTD
       - fastfetch
       # prettier du/df outputs: https://github.com/muesli/duf
-      - duf
+      #- duf
       # rainbow text
-      - lolcat
+      #- lolcat
       # blocky fonts: https://devhints.io/figlet
-      - figlet
-      - toilet
+      #- figlet
+      #- toilet
       # less: b/c you get new features if you stay up2date, & brew is up2date
-      - less
+      #- less
       # steam locamotive
-      - sl
+      #- sl
       # The Matrix screensaver for the terminal
-      - cmatrix
+      #- cmatrix
       # a cow that says things
-      - cowsay
+      #- cowsay
       # revision control system stuff
-      - git
+      #- git
       # terminal user interface for git
-      - gitui
+      #- gitui
       # github cli
-      - gh
+      #- gh
       # gitlab cli
-      - glab
+      #- glab
       # programming languages and their package managers
-      - go
+      #- go
       # node.js
-      - node
+      #- node
       # installs cargo and rust
-      - rustup
+      #- rustup
       # linter for YAML
-      - yamllint
+      #- yamllint
       # for parsing json via cli
       - jq
       # it's like jq but for yaml
       - yq
       # search stackoverflow e.g. howdoi extend a dictionary in python
-      - howdoi
+      #- howdoi
       # get the quick, short text of how to use various commands
-      - tealdeer
+      #- tealdeer
       # generating SSL certs and random strings
-      - openssl@3
+      #- openssl@3
       # password management
-      - bitwarden-cli
+      #- bitwarden-cli
       # anti virus
-      - clamav
+      #- clamav
       # TUI for gpg keys, for the lazy, like me
-      - gpg-tui
+      #- gpg-tui
       # spotify daemon
-      - spotifyd
+      #- spotifyd
       # spotify TUI
-      - spotify-tui
+      #- spotify-tui
       # linuxbrew asks for this
       - gcc
     # macOS specific stuff. Won't work with LinuxBrew
