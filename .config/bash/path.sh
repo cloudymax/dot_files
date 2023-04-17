@@ -1,4 +1,7 @@
-
+# --------------------------------------------------------------------------
+#   Pathing:   Adhereing as closely as possible to XDG Base Directory Spec
+#   https://specifications.freedesktop.org/basedir-spec/latest/
+# --------------------------------------------------------------------------
 OS=$(uname)
 
 if [[ "$OS" == *"Linux"* ]]; then
@@ -114,4 +117,4 @@ export W3M_DIR="~/.local/state/w3m"
 # add gcloud to path on macOS because they don't have a homebrew package
 export PATH=$PATH:$HOME/.local/bin/google-cloud-sdk/bin
 # updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jesse/.local/bin/google-cloud-sdk/path.bash.inc' ]; then . '/Users/jesse/.local/bin/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "/Users/$USER/.local/bin/google-cloud-sdk/path.bash.inc" ]; then . '/Users/$USER/.local/bin/google-cloud-sdk/path.bash.inc'; fi
