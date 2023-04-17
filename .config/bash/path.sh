@@ -1,7 +1,4 @@
-# --------------------------------------------------------------------------
-#   Pathing:   Adhereing as closely as possible to XDG Base Directory Spec
-#   https://specifications.freedesktop.org/basedir-spec/latest/
-# --------------------------------------------------------------------------
+
 OS=$(uname)
 
 if [[ "$OS" == *"Linux"* ]]; then
