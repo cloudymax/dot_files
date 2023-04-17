@@ -3,21 +3,6 @@
 #   https://specifications.freedesktop.org/basedir-spec/latest/
 # --------------------------------------------------------------------------
 OS=$(uname)
-LINUX_FLAVOR=""
-
-if [[ "$OS" == *"Linux"* ]]; then
-
-	RELEASE=$(lsb_release -a |grep -c Ubuntu) > /dev/null 2>&1 
-        if [[ "$RELEASE" -gt 0  ]]; then
-                LINUX_FLAVOR="ubuntu"
-		sudo sed -i "s/#\$nrconf{restart} = 'i'/\$nrconf{restart} = 'a'/g" /etc/needrestart/needrestart.conf
-        fi
-
-	RELEASE=$(lsb_release -a |grep -c Debian) > /dev/null 2>&1 
-        if [[ "$RELEASE" -gt 0 ]]; then
-                LINUX_FLAVOR="debian"
-        fi
-fi
 
 if [[ "$OS" == *"Linux"* ]]; then
     export XDG_DATA_HOME="$HOME/.local"
